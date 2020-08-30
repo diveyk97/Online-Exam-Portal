@@ -1,0 +1,45 @@
+<div class="container-fluid" style="background-image:url(../../assets/exam.jpg);">
+    <div class="row " id="timer" style="min-height: 50px; font-family: serif; font-weight: bold; margin:0 auto">
+        Time left = <span>{{counter.min}} : {{counter.sec}}</span>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-9 rounded " style="padding:5% 2% 5% 5% ; background-color: #bfa5a5;">
+            <div class="row" style="font-weight:bolder;">
+                <h3>Q: {{Questions.qsnId}} {{Questions.description}}</h3>
+            </div><br>
+            <form style="font-size: larger; font-family: serif; font-weight:bold;">
+                <input type="radio" id="op1" name="op" value=1 (click)="optionSelected($event.target.value)" [checked]="this.checkedFlag==1">
+                <label for="male">{{Questions.op1}}</label><br>
+                <input type="radio" id="op2" name="op" value=2 (click)="optionSelected($event.target.value)" [checked]="this.checkedFlag==2">
+                <label for="female">{{Questions.op2}}</label><br>
+                <input type="radio" id="op3" name="op" value=3 (click)="optionSelected($event.target.value)" [checked]="this.checkedFlag==3">
+                <label for="other">{{Questions.op3}}</label><br>
+                <input type="radio" id="op4" name="op" value=4 (click)="optionSelected($event.target.value)" [checked]="this.checkedFlag==4">
+                <label for="male">{{Questions.op4}}</label><br>
+            </form>
+        </div>
+        <div class="col-1"></div>
+        <div class="row " style="width: 100%; padding:3% 0 2% 45%">
+
+            <div *ngIf="iterator<14;then ifTemplate;else elseTemplate"></div>
+            <ng-template #ifTemplate>
+                <div class="btn btn-primary " (click)="goToPrevQsn()">
+                    prev
+                </div>
+                <div class="btn btn-primary" (click)="goToNextQsn()">
+                    next
+                </div>
+            </ng-template>
+            <ng-template #elseTemplate>
+                <div class="btn btn-primary" (click)="goToPrevQsn()">
+                    prev
+                </div>
+                <div class="btn btn-primary" (click)="showAns()">
+                    finish
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

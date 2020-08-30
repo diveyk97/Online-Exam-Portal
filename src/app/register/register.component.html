@@ -1,0 +1,30 @@
+<div class="row" style="background-image: url(../../assets/loginbg.jpg) ; background-repeat: no-repeat; background-size: cover;">
+    <div style="margin: 10% 40%;">
+        <form class="form-control  rounded form-group" style="padding:20%;background-color: wheat; width: 200%; box-shadow: 0px 0px 20px 20px #333333;" [formGroup]="registerForm" name="registerForm">
+            <input type="text" class="rounded" placeholder="First Name" [formControlName]="'firstName'">
+            <div class="text-dark rounded" style=" font-family: serif; font-weight: bolder;" *ngIf="registerForm.get('firstName').hasError('required') && !registerForm.get('firstName').pristine;">firstName is required</div>
+            <br>
+            <input type="text" class="rounded" placeholder="Last Name" style=" margin-top: 1rem; " [formControlName]="'secondName'">
+            <div class="text-dark rounded" style=" font-family: serif; font-weight: bolder;" *ngIf=" registerForm.get( 'secondName').hasError( 'required') && !registerForm.get( 'secondName').pristine; ">LastName is required</div>
+            <br>
+            <input type="email " class="rounded" placeholder="Email Address" style=" margin-top: 1rem; width: 100%;" [formControlName]=" 'mailId' ">
+            <div class="text-dark rounded" style=" font-family: serif; font-weight: bolder;" *ngIf="registerForm.get( 'mailId').hasError( 'email') && (!registerForm.get( 'mailId').pristine || registerForm.get( 'mailId').touched); ">email is not in correct format</div>
+
+            <br>
+            <input style="margin-top: 1rem;" class="rounded" type="password " placeholder="Password " [formControlName]=" 'passWord' ">
+            <div class="text-dark rounded text-justify text-dark" style="font-family: serif; font-weight: bold;" *ngIf="registerForm.get( 'passWord').hasError( 'minlength') && (!registerForm.get( 'passWord').pristine || registerForm.get( 'passWord').touched) ">password must not consist of less than 8 characters</div>
+            <!-- <div class="text-dark rounded text-justify text-dark" style="font-family: serif; font-weight: bold;" *ngIf="registerForm.get( 'passWord').hasError( 'pattern') && (!registerForm.get( 'passWord').pristine || registerForm.get( 'passWord').touched) ">password in improper format</div> -->
+            <br>
+            <input type="password " class="rounded" style="margin-top: 1rem;" placeholder="Confirm Password " [formControlName]=" 'cpassWord' ">
+            <div class="text-dark rounded text-justify text-dark" style="font-family: serif; font-weight: bold;" *ngIf="registerForm.get( 'cpassWord').hasError( 'minlength') && (!registerForm.get( 'cpassWord').pristine || registerForm.get( 'cpassWord').touched) ">password must not consist of less than 8 characters</div>
+            <div class="text-dark rounded text-justify text-dark" style="font-family: serif; font-weight: bold;" *ngIf="registerForm.get( 'cpassWord').hasError( 'mustMatch') && (!registerForm.get( 'cpassWord').pristine || registerForm.get( 'cpassWord').touched)">Passwords must match</div>
+            <br>
+            <input type="text" class="rounded" style="margin-top: 1rem;" placeholder="Mobile Number: " [formControlName]=" 'mobilePhone' ">
+            <div class="text-dark rounded text-justify text-dark" style="font-family: serif; font-weight: bold;" *ngIf="registerForm.get( 'mobilePhone').hasError( 'pattern') && (!registerForm.get( 'mobilePhone').pristine || registerForm.get( 'mobilePhone').touched) ">mobile must consist of 10 numbers</div>
+            <div class="text-dark rounded text-justify text-dark" style="font-family: serif; font-weight: bold;" *ngIf="registerForm.get( 'mobilePhone').hasError( 'maxlength') && (!registerForm.get( 'mobilePhone').pristine || registerForm.get( 'mobilePhone').touched) ">mobile must consist of 10 numbers</div>
+            <br>
+
+            <button style="margin-top: 1rem;" type="submit " [disabled]="!registerForm.valid " class="btn-sm btn-success " (click)="goToLogin(); ">Register</button>
+        </form>
+    </div>
+</div>

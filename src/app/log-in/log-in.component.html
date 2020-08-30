@@ -1,0 +1,14 @@
+<div class="row" style="background-image: url(../../assets/loginbg.jpg) ; background-repeat: no-repeat; background-size: cover;">
+    <div style="margin: 10% 40%;">
+        <form class="form-control  rounded form-group" style="padding:20%;background-color: wheat; width: 200%; box-shadow: 0px 0px 20px 20px #333333;" [formGroup]="logInForm" name="logInForm">
+            <input class="rounded" type="email" style="width: 100%;" placeholder="Enter email" [formControlName]="'mailId'"><br>
+            <div style="font-family: serif; font-weight: bolder;" class="text-dark" *ngIf="logInForm.get('mailId').hasError('required') && !logInForm.get('mailId').pristine;">mailId is required</div>
+            <input class="rounded" type="password" placeholder="Password" style="margin-top: 1rem;" [formControlName]="'passWord'"><br>
+            <div style="font-family: serif; font-weight: bolder;" class="text-dark" *ngIf="logInForm.get('passWord').hasError('required') && !logInForm.get('passWord').pristine">password is required</div>
+            <input type="checkbox" class="form-check-input" style="margin-top: 1rem;" id="Check1">
+            <label class="form-check-label text-justify text-dark" for="Check1" style=" margin-top:0.5rem;font-weight: bolder;font-family: serif;font-size: large; ">Remember me</label><br>
+            <button type="submit" [disabled]="!logInForm.valid" style="margin-top: 1rem;" id="loginSubmit" class="btn-sm btn-success" (click)="goToStart();"> Login</button><br>
+            <button type="button" id="register" class="btn-sm btn-success" style="margin-top: 1rem;" (click)="goToRegister();"> Register</button>
+        </form>
+    </div>
+</div>

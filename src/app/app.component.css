@@ -1,0 +1,13 @@
+i:hover {
+    background-color: rgb(255, 108, 40);
+    color: white;
+    border-radius: 25px;
+    transform: scale(5);
+}
+
+.nav-item:hover {
+    background-color: rgb(255, 108, 40);
+    color: white;
+    transform: scale(1.200);
+    border-radius: 25px;
+}
